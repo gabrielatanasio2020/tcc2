@@ -1,0 +1,21 @@
+body .a {
+    background-color: greenyellow;
+    margin: 0;
+    padding: 0;
+
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+
+div#botoeshome {
+    text-align: center;
+
+}

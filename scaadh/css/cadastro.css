@@ -1,0 +1,39 @@
+#contactform {
+    width: auto;
+    padding: 20px;
+    background: white;
+    overflow: auto;
+
+    /* Estilo da Borda */
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+
+    /* Border Shadow */
+    box-shadow: 2px 2px 2px #cccccc;
+    margin: 350px;
+    margin-top: 10px;
+}
+
+
+label {
+    font-family: Arial, Verdana;
+    text-shadow: 2px 2px 2px #ccc;
+    display: block;
+    float: left;
+    margin-right: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: right;
+    width: 120px;
+    line-height: 25px;
+    font-size: 15px;
+}
+
+.input {
+    font-family: Arial, Verdana;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid #b9bdc1;
+    width: 300px;
+    color: #797979;
+}

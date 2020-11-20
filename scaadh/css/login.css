@@ -1,0 +1,46 @@
+  h1 {
+      text-transform: uppercase;
+      font-size: 40px;
+      text-align: center;
+
+  }
+
+  h5 {
+      text-align: center;
+  }
+
+  h6 {
+      text-align: center;
+  }
+
+  div {
+      text-align: center;
+  }
+
+  a {
+      text-decoration: underline;
+      color: black;
+  }
+
+  div.helmo {
+
+      background-color: lightgray;
+  }
+
+  #contactform {
+      width: 400px;
+      padding: 20px;
+      background: white;
+      margin: auto;
+
+
+      /* Estilo da Borda */
+      border: 1px solid #cccccc;
+      -moz-border-radius: 7px;
+      -webkit-border-radius: 7px;
+      border-radius: 7px;
+
+      /* Border Shadow */
+      -moz-box-shadow: 2px 2px 2px #cccccc;
+      -webkit-box-shadow: 2px 2px 2px #cccccc;
+      box-shadow: 2px 2px 2px #cccccc;
