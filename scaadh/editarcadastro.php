@@ -7,7 +7,7 @@
     <!--Link para o css da página -->
     <link rel="stylesheet" type="text/css" href="css/cadastro.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <!--Estilização somente desta página -->
     <style>
         body {
             background-color: lightgray;
@@ -21,8 +21,10 @@
 
 </head>
 <?php 
+        //Efetuando conexão com banco de dados
         include("conexao.php");
     
+
         // Pegando a variavel da URL
 		$usu_codigo = intval($_GET['cod']);
 		
@@ -37,6 +39,7 @@
                 foreach($_POST as $chave =>$valor)
                     $SESSION[$chave] = $valor;
             }	
+            //Deposi que verificou a se tem o SESSION, ele vai fazer a busca no vanco de dados 
 			else {
                 
                 /*Quando a  pagina for redirecionada pra está pagina esse select vai pegar os dados do usuario com o COD selecionado pela variavel da URL*/

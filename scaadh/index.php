@@ -47,8 +47,8 @@
         </a>
         <br>
         <br>
-        <a href="contato.php">
-            <button type="button" class="btn btn-outline-success">Entre em contato com a Secretaria </button>
+        <a href="info_semana_secretaria.php">
+            <button type="button" class="btn btn-outline-success">Receber informações da semana </button>
         </a>
 
     </div>

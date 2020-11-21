@@ -36,11 +36,18 @@ include_once("conexao.php");
 </head>
 
 <body>
-    <h1>Usuários </h1> <input type="search" placeholder="Pesquisar Usuário"> <button type="button" class="btn btn-outline-success">Pesquisar</button><br>
-    <br>
-    <p></p>
+    <div class="mx-auto p-5" >
 
-    <table border=1 cellpadding=10>
+    <nav class="navbar navbar-light bg-success">
+     <a class="navbar-brand text-light">Usuários</a>
+         <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-ligth my-2 my-sm-0" type="submit">Procurar</button>
+        </form>
+    </nav>
+
+
+    <table  cellpadding=10 class="table table-light border-0" >
 
         <tr>
             <td>Usuario </td>
@@ -65,14 +72,16 @@ include_once("conexao.php");
             <td><?php echo $linha["bairro"];   ?></td>
 
             <td>
-                <a href="editarcadastro.php?cod=<?php echo $linha['cod']; ?>&local=<?php echo $linha['cod_localizacao']?>"><button type="button" class="btn btn-outline-success">Editar</button></a>
-                <a href="receptores/receptor_deleta.php?cod=<?php echo $linha["cod"];?>"><button type="button" class="btn btn-outline-success">Deletar</button></a>
+                <a href="editarcadastro.php?cod=<?php echo $linha['cod']; ?>&local=<?php echo $linha['cod_localizacao']?>"><button type="button" class="btn btn-warning">Editar</button></a>
+                <a href="receptores/receptor_deleta.php?cod=<?php echo $linha["cod"];?>"><button type="button" class="btn btn-danger">Deletar</button></a>
             </td>
 
         </tr>
         <?php  } while ($linha = $sql_query ->fetch_assoc()); ?>
 
     </table>
+    </div>
+   
 
 
 </body>

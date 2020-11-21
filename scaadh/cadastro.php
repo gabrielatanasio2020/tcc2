@@ -1,6 +1,6 @@
 ﻿<!doctype html>
 <html lang="pt-br">
-
+<!-- Seção de cadastro dos usuarios-->
 <head>
     <meta charset="utf-8">
     <title>Cadastro</title>
@@ -33,7 +33,7 @@
                     $SESSION[$chave] = $valor;
             }
                
-    ?>
+?>
 
 <body>
     <!-- Página para inserir os dados de cadastro do usuário na sua entrada no sistema -->
