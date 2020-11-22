@@ -9,44 +9,33 @@ $senha = $_POST['senha'];
 $email = $_POST['email'];
 
 
-/* PARTE 2 - CONEXAO COM A TABELA DE LOCALIZACAO */
-$municipio = $_POST['municipio'];
-$rua = $_POST['rua'];
-$bairro = $_POST['bairro'];
-$cep = $_POST['cep'];
-$numero = $_POST['numero'];
-$telefone = $_POST['telefone'];
-
-/* PARTE 3 - CONEXÃO COM A TABELA EMPREENDIMENTO!!!!!!!!!!Daqui para baixo já está conectado  */
-$numero_funcionarios = $_POST['numero_funcionarios'];
-$cadastur = $_POST['cadastur'];
+/* PARTE 2 - CONEXÃO COM A TABELA EMPREENDIMENTO!!!!!!!!!!Daqui para baixo já está conectado  */
 $cnpj = $_POST['cnpj'];
-$empresa = $_POST['empresa'];
 $titular = $_POST['titular'];
-$site = $_POST['site'];
-$atividade_principal = $_POST['atividade_principal'];
-$atividade_secundaria = $_POST['atividade_secundaria'];
+$nome = $_POST['nome'];
 $tipo = $_POST['tipo']; 
-$dias = $_POST['dia'];
+$capacidade = $_POST['capacidade'];
 
-/*Exibir os valores da variável |dias| */
-print_r($dias);
-/*Função do capiroto que faz a array virar uma string */
-$string = "";
-foreach($dias as $dia) {
-    $string .= $dia.",";
-}
-echo "Dias: ".substr($string,0,-1);
-echo "<br>";
+
+
+if ($tipo = 'Gastronomia'){
+	$sql_selecao= "INSERT INTO gastronomia (capacidade_maxima) VALUES
+	($capacidade);
+	";
+}else if ($tipo = 'Hospedagem'){
+	$sql_selecao= "INSERT INTO hospedagem (capacidade_maxima) VALUES
+	($capacidade);
+	";
+}else if ($tipo = 'Operadora'){
+	$sql_selecao= "INSERT INTO operadora (cod) VALUES
+	();
+	";
+}else {echo "Fudeo";};
 
 
 /* 		|||||||||||INFORMAÇÕES INDO PARA O BANCO DE DADOS |||||||||||||||||*/
-$sqla = "
-INSERT INTO localizacao (municipio, rua, bairro, cep, numero, telefone) 
-VALUES
-('$municipio','$rua','$bairro','$cep','$numero','$telefone');";
 
-$sqlb = "
+$sql_a = "
 INSERT INTO usuario (usuario, senha, email) 
 VALUES
 ('$usuario','$senha','$email');
@@ -55,35 +44,26 @@ VALUES
 
 
 /* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
-	if ($conexao->query($sqla) === TRUE) {
-	    echo "Cadastro da localização concluido com sucesso!<br>";
-	} else {
-	    echo "Error: " . $sqla . "<br>" . $conexao->error;
-	}
-	$codLocalizacao = mysqli_insert_id($conexao);
- 
 
-	if ($conexao->query($sqlb) === TRUE) {
+	if ($conexao->query($sql_a) === TRUE) {
 	    echo "Cadastro da usuario concluido com sucesso!<br>";
 	} else {
-	    echo "Error: " . $sqlb . "<br>" . $conexao->error;
+	    echo "Error: " . $sql_a . "<br>" . $conexao->error;
 	}
 	$codUsuario = mysqli_insert_id($conexao);
 	
-$sqlc = "
-INSERT INTO empreendimento (cod_localizacao,cod_usuario,numero_funcionarios, cadastur, cnpj, empresa, titular, site, atividade_principal, atividade_secundaria, tipo, dias_atendimento) 
-VALUES ('$codLocalizacao','$codUsuario','$numero_funcionarios','$cadastur','$cnpj','$empresa','$titular','$site','$atividade_principal','$atividade_secundaria','$tipo','$string');
+$sql_b = "
+INSERT INTO empreendimento (cod_usuario, cnpj, nome, titular, tipo) 
+VALUES ('$codUsuario','$cnpj','$nome','$titular','$tipo');
 ";
 
 
-    if ($conexao->query($sqlc) === TRUE) {
+    if ($conexao->query($sql_b) === TRUE) {
 	    echo "Cadastro da empreendimento concluido com sucesso!<br>";
-header("Location: ../");
+		header("Location: ../");
     } else {
-	    echo "Error: " . $sqlc . "<br>" . $conexao->error;
+	    echo "Error: " . $sql_b . "<br>" . $conexao->error;
 	}
 	$conexao->close();
-
-
     
 ?>

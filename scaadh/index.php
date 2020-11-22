@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <!-- PÁGINA INICIAL PARA O USUÁRIO-->
+<!-- HOME -->
 
 <head>
     <meta charset="utf-8">
@@ -16,20 +17,20 @@
         body {
             background-color: lightgray;
         }
-
     </style>
 
 
 </head>
 
 <body>
-    <br>
-    <br>
-    <h4>Seja Bem Vindo</h4>
-    <h4> ao SCAADH!!</h4>
-    <br>
-    <br>
-
+    <div class="topico">
+        <br>
+        <br>
+        <h4>Seja Bem Vindo</h4>
+        <h4> ao SCAADH!!</h4>
+        <br>
+        <br>
+    </div>
     <div id="botoeshome">
         <a href="atualizarcadastro.php">
             <button type="button" class="btn btn-outline-success">Atualizar Dados de Cadadastro</button>

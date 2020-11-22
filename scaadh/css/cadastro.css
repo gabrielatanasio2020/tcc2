@@ -10,7 +10,7 @@
 
     /* Border Shadow */
     box-shadow: 2px 2px 2px #cccccc;
-    margin: 350px;
+    margin: 30%;
     margin-top: 10px;
 }
 
@@ -19,7 +19,7 @@ label {
     font-family: Arial, Verdana;
     text-shadow: 2px 2px 2px #ccc;
     display: block;
-    float: left;
+    
     margin-right: 15px;
     font-weight: bold;
     margin-right: 10px;

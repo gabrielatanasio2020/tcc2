@@ -4,7 +4,7 @@
 $hostname = "localhost";
 $user = "root";
 $password = "";
-$database = "scaadh";
+$database = "scaadh_melhorado";
 // Criar conexao
 $conexao = new mysqli($hostname, $user, $password, $database) or die (mysql_error());
 // Checar conexao

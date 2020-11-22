@@ -22,9 +22,9 @@
       color: black;
   }
 
-  div.helmo {
+  body.helmo {
 
-      background-color: lightgray;
+      background-color:#CAFFFB;
   }
 
   #contactform {

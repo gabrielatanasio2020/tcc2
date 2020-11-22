@@ -8,16 +8,10 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Login</title>
-    <style>
-        body {
-            background-color: lightgray;
-        }
-
-    </style>
-
+  
 </head>
 
-<body class="helmo">
+<body class="helmo ">
 
     <h1>SCAADH</h1>
     <h5>Sistema de Cadastro, Armazenamento e atualização de Dados para Hotelaria</h5>
