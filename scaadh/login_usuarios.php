@@ -35,17 +35,11 @@
         </a>
         <br>
         <br>
-        <a href="visualizar.php">
-            <button type="button" class="btn btn-outline-success">Registro de Usuários </button>
+        <a href="formulario_input.php">
+            <div class="link"></div>
+            <button type="button" class="btn btn-outline-success">Preencher Formulário Semanal </button>
         </a>
-        <br>
-        <br>
-        <a href="info_semana_secretaria.php">
-            <button type="button" class="btn btn-outline-success">Receber informações da semana </button>
-        </a>
-
+       
     </div>
 
 </body>
-
-</html>

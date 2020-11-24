@@ -2,7 +2,7 @@
 <?php 
 include_once("conexao.php");
 
-    $sql_code = "SELECT data_entrada, data_saida, estado_moradia, nascionalidade FROM usuario
+    $sql_code = "SELECT data_entrada, data_saida, estado_moradia, nacionalidade FROM usuario
     inner join empreendimento emp, hospedagem hos, hospede h
     where emp.cod_usuario = usuario.cod and emp.cod_hospedagem = hos.cod and hos.cod_hospede = h.cod;
     ";

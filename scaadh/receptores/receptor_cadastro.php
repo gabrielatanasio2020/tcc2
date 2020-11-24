@@ -17,7 +17,8 @@ $tipo = $_POST['tipo'];
 $capacidade = $_POST['capacidade'];
 
 
-
+/* 		|||||||||||INFORMAÇÕES INDO PARA O BANCO DE DADOS |||||||||||||||||*/
+	
 if ($tipo = 'Gastronomia'){
 	$sql_selecao= "INSERT INTO gastronomia (capacidade_maxima) VALUES
 	($capacidade);
@@ -30,17 +31,26 @@ if ($tipo = 'Gastronomia'){
 	$sql_selecao= "INSERT INTO operadora (cod) VALUES
 	();
 	";
-}else {echo "Fudeo";};
+}else {echo "Recepitor errado";};
 
 
-/* 		|||||||||||INFORMAÇÕES INDO PARA O BANCO DE DADOS |||||||||||||||||*/
+
+if ($conexao->query($sql_selecao) === TRUE) {
+	echo "Cadastro da seleção concluido com sucesso!<br>";
+} else {
+	echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
+}
+$codTipo= mysqli_insert_id($conexao);
+
+
+
+
 
 $sql_a = "
 INSERT INTO usuario (usuario, senha, email) 
 VALUES
 ('$usuario','$senha','$email');
 "; 
-
 
 
 /* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
@@ -51,16 +61,19 @@ VALUES
 	    echo "Error: " . $sql_a . "<br>" . $conexao->error;
 	}
 	$codUsuario = mysqli_insert_id($conexao);
+
+
+
 	
 $sql_b = "
-INSERT INTO empreendimento (cod_usuario, cnpj, nome, titular, tipo) 
+INSERT INTO empreendimento (cod_usuario, cod_operadora,cod_gastronomia cnpj, nome, titular, tipo) 
 VALUES ('$codUsuario','$cnpj','$nome','$titular','$tipo');
 ";
 
 
     if ($conexao->query($sql_b) === TRUE) {
 	    echo "Cadastro da empreendimento concluido com sucesso!<br>";
-		header("Location: ../");
+		header("Location: ../index.php");
     } else {
 	    echo "Error: " . $sql_b . "<br>" . $conexao->error;
 	}

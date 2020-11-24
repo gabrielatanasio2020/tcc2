@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<?php 
+<?php
 include_once("conexao.php");
 
-    $sql_code = "
+$sql_code = "
     SELECT * FROM usuario
-    INNER JOIN empreendimento, localizacao
-    WHERE (usuario.cod = empreendimento.cod_usuario) and (empreendimento.cod_localizacao=localizacao.cod);
+    INNER JOIN empreendimento
+    WHERE (usuario.cod = empreendimento.cod_usuario);
     ";
-    $sql_query = $conexao ->query($sql_code) or die ($conexao ->error);
-    $linha = $sql_query ->fetch_assoc();
+$sql_query = $conexao->query($sql_code) or die($conexao->error);
+$linha = $sql_query->fetch_assoc();
 ?>
 
 <html lang="pt-br">
@@ -31,57 +31,44 @@ include_once("conexao.php");
 
             background-color: lightgray;
         }
-
     </style>
 </head>
 
 <body>
-    <div class="mx-auto p-5" >
+    <div class="mx-auto p-5">
 
-    <nav class="navbar navbar-light bg-success">
-     <a class="navbar-brand text-light">Usuários</a>
-         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-ligth my-2 my-sm-0" type="submit">Procurar</button>
-        </form>
-    </nav>
+        <nav class="navbar navbar-light bg-success">
+            <a class="navbar-brand text-light">Usuários</a>
+
+        </nav>
 
 
-    <table  cellpadding=10 class="table table-light border-0" >
+        <table cellpadding=10 class="table table-light border-0">
 
-        <tr>
-            <td>Usuario </td>
-            <td>Email</td>
-            <td>Tipo de Atividade</td>
-            <td>Cadastur</td>
-            <td>CNPJ </td>
-            <td>Município</td>
-            <td>Número</td>
-            <td>Bairro</td>
-            <td>Acão </td>
-        </tr>
-        <?php do { ?>
-        <tr>
-            <td><?php echo $linha['usuario'];  ?></td>
-            <td><?php echo $linha['email'];    ?></td>
-            <td><?php echo $linha["tipo"];     ?></td>
-            <td><?php echo $linha["cadastur"]; ?></td>
-            <td><?php echo $linha["cnpj"];     ?></td>
-            <td><?php echo $linha["municipio"];?></td>
-            <td><?php echo $linha["numero"];   ?></td>
-            <td><?php echo $linha["bairro"];   ?></td>
+            <tr>
+                <td>Usuario </td>
+                <td>Email </td>
+                <td>Tipo de Atividade </td>
+                <td>CNPJ </td>
+                <td>Acão </td>
+            </tr>
+            <?php do { ?>
+                <tr>
+                    <td><?php echo $linha['usuario'];  ?></td>
+                    <td><?php echo $linha['email'];    ?></td>
+                    <td><?php echo $linha["tipo"];     ?></td>
+                    <td><?php echo $linha["cnpj"];     ?></td>
+                    <td>
+                        <a href="editarcadastro.php?cod=<?php echo $linha['cod']; ?>"><button type="button" class="btn btn-warning">Editar</button></a>
+                        <a href="receptores/receptor_deleta.php?cod=<?php echo $linha["cod"]; ?>"><button type="button" class="btn btn-danger">Deletar</button></a>
+                    </td>
 
-            <td>
-                <a href="editarcadastro.php?cod=<?php echo $linha['cod']; ?>&local=<?php echo $linha['cod_localizacao']?>"><button type="button" class="btn btn-warning">Editar</button></a>
-                <a href="receptores/receptor_deleta.php?cod=<?php echo $linha["cod"];?>"><button type="button" class="btn btn-danger">Deletar</button></a>
-            </td>
+                </tr>
+            <?php  } while ($linha = $sql_query->fetch_assoc()); ?>
 
-        </tr>
-        <?php  } while ($linha = $sql_query ->fetch_assoc()); ?>
-
-    </table>
+        </table>
     </div>
-   
+
 
 
 </body>

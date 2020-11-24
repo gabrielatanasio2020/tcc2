@@ -42,10 +42,10 @@
         <div class="container">
 
             <form id="contactform" action="receptores/receptor_cadastro.php" method="POST">
-                <h2> Dados do empreendimento</h2>
+                <h2> Dados de Empreendimento</h2>
 
 
-                
+
                 <!--Dado usuário -->
                 <div class="parte1">
                     <div class="field">
@@ -69,8 +69,8 @@
                             <label for="senha">Senha:</label>
                             <input name="senha" type="password" required>
                         </p>
-                    </div>                    
-                  
+                    </div>
+
                     <!--Dado Capacidade máxima -->
                     <div class="field">
                         <p>
@@ -78,7 +78,7 @@
                             <input name="capacidade" type="number">
                         </p>
                     </div>
-                    
+
                 </div>
                 <div class="parte2">
 
@@ -108,12 +108,15 @@
                     <!--Dado tipo empreendimento -->
                     <div class="field">
                         <p>
-                            <label for="tipo">Tipo:<br>  </label>
-                            <input name="tipo" type="radio" value="Gastronomia">Gastronomia<br>
-                            <input name="tipo" type="radio" value="Hospedagem">Hospedagem<br>
-                            <input name="tipo" type="radio" value="Operadora">Operadora
+                            <label for="tipo">Tipo:</label>
+                            <select name=tipo>
+                                <option value="Gastronomia">Gastronomia</option>
+                                <option value="Hospedagem">Hospedagem</option>
+                                <option value="Operadora">Operadora</option>
+                            </select>
                         </p>
                     </div>
+
                     <br>
 
                 </div>
@@ -121,7 +124,7 @@
                 <!--Botão para enviar os dados para o arquivo de cadastro no banco de dados -->
                 <button type="submit" name="cadastrar" class="btn btn-outline-success">Cadastrar</button>
             </form>
-            
+
         </div>
     </body>
 

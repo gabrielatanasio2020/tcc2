@@ -9,10 +9,7 @@ include_once("../conexao.php");
     $sql_query = $conexao ->query($sql_code) or die ($conexao ->error);
 
 
-    $sql_codee = "DELETE FROM localizacao WHERE cod = '$usu_codigo'";
-    $sql_queryy = $conexao ->query($sql_codee) or die ($conexao ->error);
-
-    
+       
 	if($sql_query)
 	echo "
 	<script>

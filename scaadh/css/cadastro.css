@@ -1,7 +1,7 @@
 #contactform {
     width: auto;
     padding: 20px;
-    background: white;
+    background-color: white;
     overflow: auto;
 
     /* Estilo da Borda */
@@ -15,9 +15,17 @@
 }
 
 
+body {
+    background-color: lightgray;
+}
+
+h2 {
+    text-align: center;
+}
+
+
 label {
     font-family: Arial, Verdana;
-    text-shadow: 2px 2px 2px #ccc;
     display: block;
     
     margin-right: 15px;
@@ -35,5 +43,8 @@ label {
     padding: 5px;
     border: 1px solid #b9bdc1;
     width: 300px;
-    color: #797979;
+    color: black;
 }
+
+
+
