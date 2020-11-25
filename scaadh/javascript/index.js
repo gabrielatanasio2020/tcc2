@@ -28,6 +28,7 @@ const defineGuestsNumber = () => {
   toggleGuestForm(guestsNumber);
 }
 
+
 const toggleDistrict = () => {
   const isBrazilian = document.getElementById('isBrazilian');
   const districInput = document.getElementById('district');
@@ -54,7 +55,6 @@ const handleSubmit = () => {
       window.location.href ="./login_usuarios.php";
   } 
 }
-
 
 const resetVariables = () => {
   localStorage.setItem('forms', '');

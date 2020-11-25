@@ -11,19 +11,17 @@
 
 </head>
 
-<body class="helmo ">
+<body class="helmo">
 
     <h1>SCAADH</h1>
     <h5>Sistema de Cadastro, Armazenamento e atualização de Dados para Hotelaria</h5>
     <h6>Seja Bem Vindo!</h6>
 
 
-
-
     <div clas="container">
         <!-- Adicionar o action -->
 
-        <form id="contactform" action="receptores/receptor_" method="post">
+        <form id="contactform" action="receptores/receptor_validacao" method="post">
 
             <div class="field">
 

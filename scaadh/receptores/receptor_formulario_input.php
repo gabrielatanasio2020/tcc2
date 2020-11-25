@@ -6,20 +6,22 @@ $nacionalidade = $_POST['country'];
 $data_entrada = $_POST['inputDate'];
 $data_saida = $_POST['outputDate'];
 $estado_moradia = $_POST['district'];
+$cod = 2;
+
 
 if (empty($data_entrada) || empty($data_saida)) {
     echo '<script>
     alert("Preencha todos os campos!")
     </script>';
 
-    header("Location: ../formulario_input.php");
+  //  header("Location: ../formulario_input.php");
     
   
 
 
 } else {
-    $sql_code = "insert into hospede (nacionalidade, data_entrada, data_saida, estado_moradia) 
-        values ('$nacionalidade', '$data_entrada', '$data_saida', '$estado_moradia');
+    $sql_code = "insert into hospede (nacionalidade, cod_hospedagem, data_entrada, data_saida, estado_moradia) 
+        values ('$nacionalidade','$cod', '$data_entrada', '$data_saida', '$estado_moradia');
         ";
 
     if ($conexao->query($sql_code) === TRUE) {
