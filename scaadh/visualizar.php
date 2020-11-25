@@ -7,7 +7,9 @@ $sql_code = "
     INNER JOIN empreendimento
     WHERE (usuario.cod = empreendimento.cod_usuario);
     ";
+
 $sql_query = $conexao->query($sql_code) or die($conexao->error);
+
 $linha = $sql_query->fetch_assoc();
 ?>
 

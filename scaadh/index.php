@@ -11,29 +11,34 @@
 
 </head>
 
-<body class="helmo">
-
-    <h1>SCAADH</h1>
-    <h5>Sistema de Cadastro, Armazenamento e atualização de Dados para Hotelaria</h5>
-    <h6>Seja Bem Vindo!</h6>
+<body>
 
 
-    <div clas="container">
+
+    <div class="container-fluid bg-light d-flex flex-column justify-content-center align-items-center p-5">
         <!-- Adicionar o action -->
+        <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
+            <h1>SCAADH</h1>
+            <h5>Sistema de Cadastro, Armazenamento e atualização de Dados para Hotelaria</h5>
+            <h6>Seja Bem Vindo!</h6>
+            <br>
 
-        <form id="contactform" action="./receptores/receptor_validacao.php" method="POST">
+            <form action="./receptores/receptor_validacao.php" method="POST">
 
-            <div class="field">
-                <p>Nome de usuario:</p>
-                <input name="usuario"><br>
-                <p>Senha:</p>
-                <input type="password" name="senha"><br>
-                <br>
-            </div>
-            <button type="submit" name="logar" class="btn btn-outline-success">Login</button>
-        </form>
+                <div class="field">
+                    <p>Nome de usuario:</p>
+                    <input name="usuario"><br>
+                    <p>Senha:</p>
+                    <input type="password" name="senha"><br>
+                    <br>
+                </div>
+                <button type="submit" name="logar" class="btn btn-outline-success">Login</button>
+            </form>
+            <br>
 
-        <a class="btn btn-primary" id="cad_empresa" href="./cadastro.php">Cadastrar empresa</a>
+
+            <a class="btn btn-primary" id="cad_empresa" href="./cadastro.php">Cadastrar-me</a>
+        </div>
     </div>
 </body>
 

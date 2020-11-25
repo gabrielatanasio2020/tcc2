@@ -19,56 +19,9 @@
 
 
 
-	//////////// Tratando o tipo de cliente que é
-
-	// iniciando as variaves para não dar erro de não existir a variavel
-	$cod_gastronomia = null;
-	$cod_hospedagem = null;
-	$cod_operadora = null;
-
-	
-	if ($tipo = 'Gastronomia') {
-		$sql_selecao = "INSERT INTO gastronomia (capacidade_maxima) VALUES ($capacidade);
-	";
-
-		if ($conexao->query($sql_selecao) === TRUE) {
-			echo "Cadastro da seleção concluido com sucesso!<br>";
-		} else {
-			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
-		}
-		$cod_gastronomia = mysqli_insert_id($conexao);
-
-	} else if ($tipo = 'Hospedagem') {
-		$sql_selecao = "INSERT INTO hospedagem (capacidade_maxima) VALUES ($capacidade);
-	";
-
-		if ($conexao->query($sql_selecao) === TRUE) {
-			echo "Cadastro da seleção concluido com sucesso!<br>";
-		} else {
-			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
-		}
-		$cod_hospedagem = mysqli_insert_id($conexao);
-
-	} else if ($tipo = 'Operadora') {
-		$sql_selecao = "INSERT INTO operadora (cod) VALUES ();
-	";
-
-		if ($conexao->query($sql_selecao) === TRUE) {
-			echo "Cadastro da seleção concluido com sucesso!<br>";
-		} else {
-			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
-		}
-		$cod_operadora = mysqli_insert_id($conexao);
-
-	} else {
-		echo "Recepitor errado";
-	};
 
 
-
-
-
-/* 		|||||||||||INFORMAÇÕES INDO PARA O BANCO DE DADOS |||||||||||||||||*/
+	/* 		|||||||||||INFORMAÇÕES INDO PARA O BANCO DE DADOS |||||||||||||||||*/
 
 
 	$sql_a = "
@@ -89,11 +42,57 @@ VALUES
 
 
 
+	//////////// Tratando o tipo de cliente que é
 
-	$sql_b = "
-INSERT INTO empreendimento (cod_usuario, cod_operadora, cod_gastronomia, cod_hospedagem, cnpj, nome, titular, tipo) 
-VALUES ('$codUsuario','$cod_operadora','$cod_gastronomia','$cod_hospedagem','$cnpj','$nome','$titular','$tipo');
+	if (strcasecmp($tipo, 'Gastronomia') == 0) {
+		$sql_selecao = "INSERT INTO gastronomia (capacidade_maxima) VALUES ($capacidade);
+	";
+
+		if ($conexao->query($sql_selecao) === TRUE) {
+			echo "Cadastro da seleção concluido com sucesso gastronomia!<br>";
+		} else {
+			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
+		}
+		$cod_gastronomia = mysqli_insert_id($conexao);
+
+		$sql_b = "
+		INSERT INTO empreendimento (cod_usuario, cod_gastronomia, cnpj, nome, titular, tipo) 
+		VALUES ('$codUsuario',$cod_gastronomia','$cnpj','$nome','$titular','$tipo');
 ";
+	} else if (strcasecmp($tipo, 'Hospedagem') == 0) {
+		$sql_selecao = "INSERT INTO hospedagem (capacidade_maxima) VALUES ($capacidade);
+	";
+
+		if ($conexao->query($sql_selecao) === TRUE) {
+			echo "Cadastro da seleção concluido com sucesso hospedagem!<br>";
+		} else {
+			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
+		}
+		$cod_hospedagem = mysqli_insert_id($conexao);
+
+		$sql_b = "
+		INSERT INTO empreendimento (cod_usuario, cod_hospedagem, cnpj, nome, titular, tipo) 
+		VALUES ('$codUsuario','$cod_hospedagem','$cnpj','$nome','$titular','$tipo');
+";
+	} else if (strcasecmp($tipo, 'Operadora') == 0) {
+		$sql_selecao = "INSERT INTO operadora (cod) VALUES ();
+	";
+
+		if ($conexao->query($sql_selecao) === TRUE) {
+			echo "Cadastro da seleção concluido com sucesso operadora!<br>";
+		} else {
+			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
+		}
+		$cod_operadora = mysqli_insert_id($conexao);
+
+		$sql_b = "
+		INSERT INTO empreendimento (cod_usuario, cod_operadora, cnpj, nome, titular, tipo) 
+		VALUES ('$codUsuario','$cod_operadora','$cnpj','$nome','$titular','$tipo');
+";
+	} else {
+		echo "Recepitor errado";
+	};
+
 
 
 	if ($conexao->query($sql_b) === TRUE) {
