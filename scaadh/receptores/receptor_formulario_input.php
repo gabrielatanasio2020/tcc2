@@ -6,7 +6,7 @@ $nacionalidade = $_POST['country'];
 $data_entrada = $_POST['inputDate'];
 $data_saida = $_POST['outputDate'];
 $estado_moradia = $_POST['district'];
-$cod = 2;
+$cod = 1;
 
 
 if (empty($data_entrada) || empty($data_saida)) {
@@ -26,7 +26,7 @@ if (empty($data_entrada) || empty($data_saida)) {
 
     if ($conexao->query($sql_code) === TRUE) {
         echo "Cadastro concluido com sucesso!<br>";
-        header("Location: ../formulario_input.php");
+      //  header("Location: ../formulario_input.php");
     } else {
         echo "Error: " . $sql_code . "<br>" . $conexao->error;
     }
