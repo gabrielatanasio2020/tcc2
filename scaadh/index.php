@@ -36,7 +36,7 @@
                 <div id="funciona">
 
                     
-                    <a href="cadastro.php">Cadastrar- me</a>
+                    <button  class="btn btn-link" href="cadastro.php"  >Cadastrar- me</button>
                 </div>
             </div>
         </form>

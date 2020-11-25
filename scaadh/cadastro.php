@@ -22,17 +22,6 @@
     </head>
     <?php
     include("conexao.php");
-    if (isset($_POST['cadastrar'])) {
-
-        //1 - Registro dos dados
-        if (!isset($SESSION))
-            session_start();
-
-        //2 - Armazenar os dados
-        foreach ($_POST as $chave => $valor)
-            $SESSION[$chave] = $valor;
-    }
-
     ?>
 
     <body>

@@ -10,7 +10,11 @@ include_once("conexao.php");
 
     $sql_query = $conexao ->query($sql_code) or die ($conexao ->error);
     $linha = $sql_query ->fetch_assoc();
-?><!-- PÁGINA PARA MOSTRAR OS DADOS DAS HOSPEDAGENS E SEUS HOSPEDES  -->
+?>
+
+
+
+<!-- PÁGINA PARA MOSTRAR OS DADOS DAS HOSPEDAGENS E SEUS HOSPEDES  -->
 
 
 <html lang="pt-br">

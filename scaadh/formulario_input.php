@@ -26,35 +26,39 @@
                     <form action="./receptores/receptor_formulario_input.php" method="POST" id="formGuests">
 
                         <div class="form-group" id="guestForm">
-<!--Aqui é a entrada da nacionalidade -->
+                            <!--Aqui é a entrada da nacionalidade -->
                             <div class="input-control">
                                 <label for="country" class="mb-0"><small>Pais de origem:</small></label>
                                 <input type="text" name="country" placeholder="Nacionalidade" class="form-control mb-3">
                             </div>
-<!--Aqui faz a checagem se o hospede é brasileiro, alterando o html atraves de um javascript -->
+
+                            <!--Aqui faz a checagem se o hospede é brasileiro, alterando o html atraves de um javascript -->
                             <div class="form-group form-check mt-0">
                                 <input type="checkbox" class="form-check-input" id="isBrazilian" onclick="toggleDistrict()">
                                 <label class="form-check-label" for="isBrazilian"><small>Brasileiro</small></label>
                             </div>
-<!--Aqui é a estrada do campo Estado, caso brasileiro -->
+
+                            <!--Aqui é a estrada do campo Estado, caso brasileiro -->
                             <div class="input-control" id="districtInput" style="display: none;">
                                 <label for="country" class="mb-0"><small>Estado</small></label>
                                 <input type="text" name="district" placeholder="Estado" class="form-control mb-4 mt-0">
                             </div>
-<!-- Data de entrada do hospede -->
+
+                            <!-- Data de entrada do hospede -->
                             <div class="input-control mb-3">
                                 <label for="inputDate" class="mb-0"><small>Data de Entrada</small></label>
                                 <input type="date" name="inputDate" placeholder="Data de entrada" class="form-control">
                             </div>
-<!--Data de saida do hospede -->
+                            
+                            <!--Data de saida do hospede -->
                             <div class="input-control mb-4">
                                 <label for="outputDate" class="mb-0"><small>Data de Saída</small></label>
                                 <input type="date" name="outputDate" placeholder="Data de saída" class="form-control">
                             </div>
-                            
-<!-- Aqui faz o envio dos dados para o arquivo receptor_formulario_input     onclick='handleSubmit'     -->
-                            <button type="submit" class="btn btn-primary btn-block" >Cadastrar</button>
-                       
+
+                            <!-- Aqui faz o envio dos dados para o arquivo receptor_formulario_input     onclick='handleSubmit'     -->
+                            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+
                         </div>
                     </form>
                 </div>
