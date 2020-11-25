@@ -7,20 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/azul_fraquin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="./javascript/index.js"></script>
-
+    
     <title>Hello, world!</title>
 </head>
 
 <body>
 <!-- esse bg-light é o que define a cor de fundo-->
-        <div class="container-fluid bg-light d-flex flex-column justify-content-center align-items-center p-5">
+        <div class="container-fluid bg-primary d-flex flex-column justify-content-center align-items-center p-5">
           <!-- Aqui em cima           .        tentar colocar um azul clarinho     -->
         <div class="col-12 col-lg-5 p-2 bg-white border border-success rounded-lg">
                 <div class="card p-5 border-0">
                     <div class="card-header bg-white border-0">
-                        <h5>Cadastrar Hóspedes</h5>
+                        <h5>Registrar Hóspedes</h5>
                     </div>
 
                     <div class="card-body">
@@ -31,19 +32,15 @@
                                 <!--Aqui é a entrada da nacionalidade -->
                                 <div class="input-control">
                                     <label for="country" class="mb-0"><small>Pais de origem:</small></label>
-                                    <input type="text" name="country" placeholder="Nacionalidade" class="form-control mb-3">
+                                    <input type="text" name="country" placeholder="Preencher somente se hospede estrangeiro" class="form-control mb-3">
                                 </div>
 
-                                <!--Aqui faz a checagem se o hospede é brasileiro, alterando o html atraves de um javascript -->
-                                <div class="form-group form-check mt-0">
-                                    <input type="checkbox" class="form-check-input" id="isBrazilian" onclick="toggleDistrict()">
-                                    <label class="form-check-label" for="isBrazilian"><small>Brasileiro</small></label>
-                                </div>
+                            
 
                                 <!--Aqui é a estrada do campo Estado, caso brasileiro -->
-                                <div class="input-control" id="districtInput" style="display: none;">
-                                    <label for="country" class="mb-0"><small>Estado</small></label>
-                                    <input type="text" name="district" placeholder="Estado" class="form-control mb-4 mt-0">
+                                <div class="input-control" id="districtInput">
+                                    <label for="country" class="mb-0"><small>Estado:</small></label>
+                                    <input type="text" name="district" placeholder="Preencher somente se hospede brasileiro" class="form-control mb-4 mt-0">
                                 </div>
 
                                 <!-- Data de entrada do hospede -->
@@ -60,15 +57,11 @@
 
                                 <!-- Aqui faz o envio dos dados para o arquivo receptor_formulario_input     onclick='handleSubmit'     -->
                                 <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
-
                             </div>
                         </form>
                     </div>
                 </div>
                 <hr>
-
-
-
                 <div class="card p-0 border-0 rounded-0">
                     <div class="card-header bg-white border-0 p-5">
                         <h5 class="mb-0">Ultimos Registros</h5>

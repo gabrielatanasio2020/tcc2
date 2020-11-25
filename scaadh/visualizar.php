@@ -36,7 +36,7 @@ $linha = $sql_query->fetch_assoc();
     </style>
 </head>
 
-<body>
+<body class="bg-primary">
     <div class="mx-auto p-5">
 
         <nav class="navbar navbar-light bg-success">

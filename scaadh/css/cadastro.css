@@ -1,22 +1,12 @@
 #contactform {
     width: auto;
-    padding: 20px;
-    background-color: white;
-    overflow: auto;
 
-    /* Estilo da Borda */
-    border: 1px solid #cccccc;
-    border-radius: 7px;
-
-    /* Border Shadow */
-    box-shadow: 2px 2px 2px #cccccc;
-    margin: 30%;
-    margin-top: 10px;
 }
 
-
-body {
-    background-color: lightgray;
+#borda {
+    border-width: 4px;
+    border-style: solid;
+    border-color: green;
 }
 
 h2 {
@@ -27,11 +17,11 @@ h2 {
 label {
     font-family: Arial, Verdana;
     display: block;
-    
+
     margin-right: 15px;
     font-weight: bold;
     margin-right: 10px;
-    text-align: right;
+    text-align: left;
     width: 120px;
     line-height: 25px;
     font-size: 15px;
@@ -39,12 +29,6 @@ label {
 
 .input {
     font-family: Arial, Verdana;
-    font-size: 15px;
-    padding: 5px;
     border: 1px solid #b9bdc1;
-    width: 300px;
     color: black;
 }
-
-
-

@@ -11,22 +11,22 @@
 
 </head>
 
-<body>
+<body class="bg-primary">
 
 
 
-    <div class="container-fluid bg-light d-flex flex-column justify-content-center align-items-center p-5">
+    <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
         <!-- Adicionar o action -->
-        <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
+        <div class="col-12 col-lg-5 p-2 bg-white border rounded-right">
             <h1>SCAADH</h1>
             <h5>Sistema de Cadastro, Armazenamento e atualização de Dados para Hotelaria</h5>
-            <h6>Seja Bem Vindo!</h6>
+            <h6>Seja Bem-Vindo!</h6>
             <br>
 
             <form action="./receptores/receptor_validacao.php" method="POST">
 
                 <div class="field">
-                    <p>Nome de usuario:</p>
+                    <p> Usuário:</p>
                     <input name="usuario"><br>
                     <p>Senha:</p>
                     <input type="password" name="senha"><br>
