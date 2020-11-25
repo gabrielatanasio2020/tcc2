@@ -21,29 +21,20 @@
     <div clas="container">
         <!-- Adicionar o action -->
 
-        <form id="contactform" action="receptores/receptor_validacao" method="post">
+        <form id="contactform" action="./receptores/receptor_validacao.php" method="POST">
 
             <div class="field">
-
-                <p>Email:</p>
-                <input name="email"><br>
+                <p>Nome de usuario:</p>
+                <input name="usuario"><br>
                 <p>Senha:</p>
                 <input type="password" name="senha"><br>
                 <br>
-                <a href="login.php"><button type="button" class="btn btn-outline-success">Entrar </button></a>
-                <br>
-                <br>
-                <div id="funciona">
-
-                    
-                    <button  class="btn btn-link" href="cadastro.php"  >Cadastrar- me</button>
-                </div>
             </div>
+            <button type="submit" name="logar" class="btn btn-outline-success">Login</button>
         </form>
 
+        <a class="btn btn-primary" id="cad_empresa" href="./cadastro.php">Cadastrar empresa</a>
     </div>
-
-
 </body>
 
 </html>

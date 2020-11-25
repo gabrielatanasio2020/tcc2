@@ -22,6 +22,17 @@
     </head>
     <?php
     include("conexao.php");
+    if (isset($_POST['cadastrar'])) {
+
+        //1 - Registro dos dados
+        if (!isset($SESSION))
+            session_start();
+
+        //2 - Armazenar os dados
+        foreach ($_POST as $chave => $valor)
+            $SESSION[$chave] = $valor;
+    }
+
     ?>
 
     <body>
@@ -30,7 +41,9 @@
         <!-- AQUI EU ADICIONEI NA TABELA OS OUTROS DADOS -->
         <div class="container">
 
-            <form id="contactform" action="receptores/receptor_cadastro.php" method="POST">
+            
+        <form id="contactform" action="receptores/receptor_cadastro.php" method="POST">
+ 
                 <h2> Dados de Empreendimento</h2>
 
 
