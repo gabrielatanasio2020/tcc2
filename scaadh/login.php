@@ -37,7 +37,7 @@
                 </a>
                 <br>
                 <br>
-                <a href="info_semana_secretaria.php">
+                <a href="info_semana_secretaria_data.php">
                     <button type="button" class="btn btn-outline-success">Receber informações da semana </button>
                 </a>
             </div>

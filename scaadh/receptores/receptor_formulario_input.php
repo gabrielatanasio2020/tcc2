@@ -1,12 +1,11 @@
 <?php
 include_once("../conexao.php");
 
-
 $nacionalidade = $_POST['country'];
 $data_entrada = $_POST['inputDate'];
 $data_saida = $_POST['outputDate'];
 $estado_moradia = $_POST['district'];
-$cod = 1;
+$cod = $_SESSION['UsuarioCOD'];
 
 
 

@@ -15,8 +15,6 @@ include_once("conexao.php");
 
 
 <!-- PÁGINA PARA MOSTRAR OS DADOS DAS HOSPEDAGENS E SEUS HOSPEDES  -->
-
-
 <html lang="pt-br">
   <head>
       <!-- Required meta tags -->
