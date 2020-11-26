@@ -32,20 +32,16 @@ if ($num_rows != 1) {
   // Salva os dados encontrados na variável $resultado
   $linha = $sql_query->fetch_assoc();
 
-  // Se a sessão não existir, inicia uma
-  if (!isset($_SESSION)) {
-    session_start();
-  }
-
+  session_start();
   // Salva os dados encontrados na sessão
   $_SESSION['UsuarioCOD'] = $linha['cod'];
   $_SESSION['UsuarioNivel'] = $linha['nivelacesso'];
 
- 
 
-  if ($linha['nivelacesso'] == 1) {
-   header("Location: ../login.php");
-  } else if ($linha['nivelacesso'] == 2) {
+
+  if ($_SESSION['UsuarioNivel'] == 1) {
+    header("Location: ../login.php");
+  } else if ($_SESSION['UsuarioNivel'] == 2) {
     header("Location: ../login_usuarios.php");
   } else {
     echo "Error";

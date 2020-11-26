@@ -51,7 +51,7 @@ VALUES
 		if ($conexao->query($sql_selecao) === TRUE) {
 			echo "Cadastro da seleção concluido com sucesso gastronomia!<br>";
 		} else {
-			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
+			echo "Error no gastro: " . $sql_selecao . "<br>" . $conexao->error;
 		}
 		$cod_gastronomia = mysqli_insert_id($conexao);
 
@@ -66,7 +66,7 @@ VALUES
 		if ($conexao->query($sql_selecao) === TRUE) {
 			echo "Cadastro da seleção concluido com sucesso hospedagem!<br>";
 		} else {
-			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
+			echo "Error no hosp: " . $sql_selecao . "<br>" . $conexao->error;
 		}
 		$cod_hospedagem = mysqli_insert_id($conexao);
 
@@ -81,7 +81,7 @@ VALUES
 		if ($conexao->query($sql_selecao) === TRUE) {
 			echo "Cadastro da seleção concluido com sucesso operadora!<br>";
 		} else {
-			echo "Error: " . $sql_selecao . "<br>" . $conexao->error;
+			echo "Error no operadora: " . $sql_selecao . "<br>" . $conexao->error;
 		}
 		$cod_operadora = mysqli_insert_id($conexao);
 

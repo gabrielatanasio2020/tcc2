@@ -13,7 +13,7 @@
         <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
             <div>
                 <br>
-                <h4>Determine as datas para busca no Banco de Dados</h4>
+                <h4>Informe o periodo que deseja buscar</h4>
                 <br>
             </div>
             <form action="./receptores/receptor_semana_data.php" method="POST">
