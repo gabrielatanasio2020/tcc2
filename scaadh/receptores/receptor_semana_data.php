@@ -51,25 +51,26 @@ $sql_query = $conexao->query($sql_code) or die($conexao->error);
 
                     $pegar_dados_empreendimento = "SELECT * FROM empreendimento WHERE cod_hospedagem = '$array_to_string';";
                     $informacoes_cada_empreendimento = $conexao->query($pegar_dados_empreendimento) or die($conexao->error);
-                    
-                    // while para mostrar cada empreendimento
-                    while ($informacoes_cada_empreendimento = $sql_query->fetch_assoc()) {
+                    $informacoes_recebidas = $informacoes_cada_empreendimento->fetch_assoc();
 
+                    $cod_usuario = $informacoes_recebidas['cod_usuario'];
+
+                    $selecionar_emails = "SELECT email FROM usuario where usuario.cod = '$cod_usuario' ;"; 
+                    $executar = $conexao->query($selecionar_emails) or die($conexao->error);
+                    $email = $executar -> fetch_assoc();
                 ?>
-                        <tr>
-                            <td><?php echo $informacoes_cada_empreendimento['titular'];  ?></td>
-                            <td><?php echo $informacoes_cada_empreendimento['email'];    ?></td>
-                            <td><?php echo $informacoes_cada_empreendimento["tipo"];     ?></td>
-                            <td><?php echo $informacoes_cada_empreendimento["cnpj"];     ?></td>
-                            <td>
-                                <a href="receptores/receptor_usuario_especifico.php?cod=<?php echo $informacoes_cada_empreendimento["cod_hospedagem"]; ?>"> <button type="button" class="btn btn-primary">Hospedes</button></a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td><?php echo $informacoes_recebidas['titular'];  ?></td>
+                        <td><?php echo $email['email'];    ?></td>
+                        <td><?php echo $informacoes_recebidas["tipo"];     ?></td>
+                        <td><?php echo $informacoes_recebidas["cnpj"];     ?></td>
+                        <td>
+                            <a href="receptores/receptor_usuario_especifico.php?cod=<?php echo $informacoes_recebidas["cod_hospedagem"]; ?>"> <button type="button" class="btn btn-primary">Hospedes</button></a>
+                        </td>
+                    </tr>
 
                 <?php
-                    }
                 }
-
                 ?>
 
             </table>
