@@ -8,8 +8,8 @@ $data_fim = $_POST['datefini'];
 
 
 //Busca do cod hospedagem para descobrir quais hospegens estão encaixadas na seleção
-$sql_code = "SELECT cod_hospedagem FROM hospede where data_entrada between '$data_inicio' and '$data_fim';";
-
+$sql_code = "SELECT cod_hospedagem FROM hospede where data_entrada between '$data_inicio' and '$data_fim' group by cod_hospedagem;";
+//executa a busca
 $sql_query = $conexao->query($sql_code) or die($conexao->error);
 
 ?>
@@ -24,45 +24,54 @@ $sql_query = $conexao->query($sql_code) or die($conexao->error);
 <body class="bg-primary">
     <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
         <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
-
             <nav class="navbar navbar-light bg-success">
                 <a class="navbar-brand text-light">Usuários</a>
 
             </nav>
 
-            <table cellpadding=10 class="table table-light border-0">
+
+            <table cellpadding=2 class="table table-light border-0">
                 <tr>
                     <td>Titular </td>
-                    <td>Nome </td>
+                    <td>Email</td>
                     <td>Tipo</td>
-                    <td>CNPJ </td>
-                    <td>Acão </td>
+                    <td>CNPJ</td>
+                    <td>Acão</td>
                 </tr>
                 <?PHP
-                do { 
+
+                // Todas funções mysql_fetch_* retornam uma única linha e avançam o cursor interno para o próximo registro.
+                // Para obter todos os registros, você precisa utiliza-las dentro de alguma estrutura de repetição.
+
+
+                while ($cada_hospedagem_recebeu = $sql_query->fetch_assoc()) { // Obtém os dados da linha atual e avança para o próximo registro
+                    //Pegar os dados de cada hospedagem que recebeu e imprimir a função na tela.
+                    //para fazer isso vou passar de array para string 
+                    $array_to_string = $cada_hospedagem_recebeu['cod_hospedagem'];
+
+                    $pegar_dados_empreendimento = "SELECT * FROM empreendimento WHERE cod_hospedagem = '$array_to_string';";
+                    $informacoes_cada_empreendimento = $conexao->query($pegar_dados_empreendimento) or die($conexao->error);
                     
-                                
-                                do {
-                                                $sql_code2 = "SELECT * FROM empreendimento WHERE cod_hospedagem in $hospedagens_afetadas_cod;";
-                                                $sql_query2 = $conexao->query($sql_code2) or die($conexao->error);
-                                                ?>
-                                                
-                                                <?php do        { ?>
-                                                                    <tr>
-                                                                    <td><?php echo $linha['titular'];  ?></td>
-                                                                    <td><?php echo $linha['email'];    ?></td>
-                                                                    <td><?php echo $linha["tipo"];     ?></td>
-                                                                    <td><?php echo $linha["cnpj"];     ?></td>
-                                                                    <td>
-                                                                        <a href="receptores/receptor_deleta.php?cod=<?php echo $linha["cod"]; ?>"><button type="button" class="btn btn-danger">Deletar</button></a>
-                                                                    </td>
-                                                                    </tr>
-                                                <?php           } while ($linha = $sql_query->fetch_assoc()); ?>
-                                    <?php
-                                }while ($linha = $sql_query2->fetch_assoc());
-                                
-                }while ($hospedagens_afetadas_cod = $sql_query->fetch_assoc());
+                    // while para mostrar cada empreendimento
+                    while ($informacoes_cada_empreendimento = $sql_query->fetch_assoc()) {
+
                 ?>
+                        <tr>
+                            <td><?php echo $informacoes_cada_empreendimento['titular'];  ?></td>
+                            <td><?php echo $informacoes_cada_empreendimento['email'];    ?></td>
+                            <td><?php echo $informacoes_cada_empreendimento["tipo"];     ?></td>
+                            <td><?php echo $informacoes_cada_empreendimento["cnpj"];     ?></td>
+                            <td>
+                                <a href="receptores/receptor_usuario_especifico.php?cod=<?php echo $informacoes_cada_empreendimento["cod_hospedagem"]; ?>"> <button type="button" class="btn btn-primary">Hospedes</button></a>
+                            </td>
+                        </tr>
+
+                <?php
+                    }
+                }
+
+                ?>
+
             </table>
 
         </div>

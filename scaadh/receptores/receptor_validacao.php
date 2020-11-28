@@ -34,6 +34,8 @@ if ($num_rows != 1) {
 
   session_start();
   // Salva os dados encontrados na sessão
+
+  
   $_SESSION['UsuarioCOD'] = $linha['cod'];
   $_SESSION['UsuarioNivel'] = $linha['nivelacesso'];
 

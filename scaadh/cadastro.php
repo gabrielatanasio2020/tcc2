@@ -17,8 +17,8 @@
         <!-- AQUI EU ADICIONEI NA TABELA OS OUTROS DADOS -->
         <div class="container">
 
-            <div  class="container-fluid d-flex flex-column text-center align-items-center p-5">
-                <div id="borda"class="col-12 col-lg-5 p-2 bg-white border border-success rounded-right">
+            <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
+                <div id="borda" class="col-12 col-lg-5 p-2 bg-white border border-success rounded-right">
                     <form id="contactform" action="receptores/receptor_cadastro.php" method="POST">
 
                         <h3> Dados de Cadastro</h3>
@@ -70,7 +70,7 @@
                             <div class="field">
                                 <p>
                                     <label for="Empresa">Empresa:</label>
-                                    <input name="nome" type="text" >
+                                    <input name="nome" type="text">
                                 </p>
                             </div>
                             <!--Dado titular -->
@@ -85,8 +85,8 @@
                                 <p>
                                     <label for="tipo">Tipo:</label>
                                     <select required="required" name=tipo>
-                                        <option value="Gastronomia">Gastronomia</option>
                                         <option value="Hospedagem">Hospedagem</option>
+                                        <option value="Gastronomia">Gastronomia</option>
                                         <option value="Operadora">Operadora</option>
                                     </select>
                                 </p>

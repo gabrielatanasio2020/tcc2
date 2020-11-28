@@ -15,6 +15,14 @@
 </head>
 
 <body>
+
+
+    <?php
+
+    $today = date('d/m/Y');
+
+    ?>
+
     <!-- esse bg-light é o que define a cor de fundo-->
     <div class="container-fluid bg-primary d-flex flex-column justify-content-center align-items-center p-5">
         <!-- Aqui em cima           .        tentar colocar um azul clarinho     -->
@@ -34,7 +42,7 @@
                                 <label for="country" class="mb-0"><small>Pais de origem:</small></label>
                                 <input type="text" name="country" placeholder="Preencher somente se hospede estrangeiro" class="form-control mb-3">
                             </div>
-                            
+
                             <!--Aqui é a estrada do campo Estado, caso brasileiro -->
                             <div class="input-control" id="districtInput">
                                 <label for="country" class="mb-0"><small>Estado:</small></label>
@@ -60,10 +68,30 @@
                 </div>
             </div>
             <hr>
+
+            <!-- Parte de mostrar os registros  -->
+
+            <?php
+                //   $sql = mysql_query("Select * From tb_trabalhador and tb_detalhe_trabalhador");
+                //   while ($exibe = mysql_fetch_assoc($sql)) {
+                //       echo $exibe['nome'] . '<br>';
+                //   }
+      
+      
+                //   // Todas funções mysql_fetch_* retornam uma única linha e avançam o cursor interno para o próximo registro.
+                //   // Para obter todos os registros, você precisa utiliza-las dentro de alguma estrutura de repetição.
+      
+      
+                //   while ($exibe = mysql_fetch_assoc($sql)) { // Obtém os dados da linha atual e avança para o próximo registro
+                //       echo $exibe["nome"];
+                //   }
+
+            ?>
+
             <div class="card p-0 border-0 rounded-0">
                 <div class="card-header bg-white border-0 p-5">
                     <h5 class="mb-0">Ultimos Registros</h5>
-                    <small class="text-secondary">Data 23/11/2020</small>
+                    <small class="text-secondary">Data: <?php echo $today ?></small>
                 </div>
                 <div class="card-body px-5">
                     <div class="row row-cols-1 row-cols-md-3">
