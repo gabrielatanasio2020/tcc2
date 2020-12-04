@@ -1,6 +1,7 @@
 <?php
 include_once("../conexao.php");
 
+date_default_timezone_set("Brazil/East");
 session_start();
 
 $nacionalidade = $_POST['country'];
@@ -11,8 +12,9 @@ $cod =  $_SESSION['UsuarioCOD'];
 
 
 //Pegando o valor do cod_hospedagem
-$sql_code_hospedagem = "SELECT * FROM scaadh_melhorado.empreendimento
+$sql_code_hospedagem = "SELECT * FROM scaadh_melhorado.empreendimento 
 WHERE '$cod' = cod_usuario;";
+
 $sql_query_cod_hospedagem = $conexao->query($sql_code_hospedagem) or die($conexao->error);
 $linha = $sql_query_cod_hospedagem->fetch_assoc();
 $usando = $linha['cod_hospedagem'];
@@ -25,9 +27,7 @@ if (empty($data_entrada) || empty($data_saida)) {
     alert("Preencha todos os campos!")
     </script>';
 
-    header("Location: ../formulario_input.php"); 
-
-
+    header("Location: ../formulario_input.php");
 } else {
     $sql_code = "INSERT into hospede (nacionalidade, cod_hospedagem, data_registro, data_entrada, data_saida, estado_moradia) 
         values ('$nacionalidade','$usando', '$today' ,'$data_entrada', '$data_saida', '$estado_moradia');
@@ -41,6 +41,3 @@ if (empty($data_entrada) || empty($data_saida)) {
     }
     $conexao->close();
 }
-
-
-?>

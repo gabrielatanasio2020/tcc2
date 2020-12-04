@@ -3,6 +3,7 @@
 <?php
 include_once("../conexao.php");
 
+date_default_timezone_set("Brazil/East");
 $data_inicio = $_POST['dateini'];
 $data_fim = $_POST['datefini'];
 
@@ -11,7 +12,6 @@ $data_fim = $_POST['datefini'];
 $sql_code = "SELECT cod_hospedagem FROM hospede where data_entrada between '$data_inicio' and '$data_fim' group by cod_hospedagem;";
 //executa a busca
 $sql_query = $conexao->query($sql_code) or die($conexao->error);
-
 ?>
 
 <head>
@@ -23,7 +23,8 @@ $sql_query = $conexao->query($sql_code) or die($conexao->error);
 
 <body class="bg-primary">
     <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
-        <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
+        <div class="col-sm- 7 p-2 bg-white border rounded table-responsive">
+            <!-- <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg"> -->
             <nav class="navbar navbar-light bg-success">
                 <a class="navbar-brand text-light">Usuários</a>
 
@@ -55,9 +56,9 @@ $sql_query = $conexao->query($sql_code) or die($conexao->error);
 
                     $cod_usuario = $informacoes_recebidas['cod_usuario'];
 
-                    $selecionar_emails = "SELECT email FROM usuario where usuario.cod = '$cod_usuario' ;"; 
+                    $selecionar_emails = "SELECT email FROM usuario where usuario.cod = '$cod_usuario' ;";
                     $executar = $conexao->query($selecionar_emails) or die($conexao->error);
-                    $email = $executar -> fetch_assoc();
+                    $email = $executar->fetch_assoc();
                 ?>
                     <tr>
                         <td><?php echo $informacoes_recebidas['titular'];  ?></td>
