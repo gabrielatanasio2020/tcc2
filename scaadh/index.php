@@ -19,7 +19,7 @@
         <!-- Adicionar o action -->
         <div class="col-12 col-lg-5 p-2 bg-white border rounded-right">
             <h1>SCAADH</h1>
-            <h5>Sistema de Cadastro, Armazenamento e atualização de Dados para Hotelaria</h5>
+            <h5>Sistema de Cadastro, Armazenamento e Atualização de Dados para Hotelaria</h5>
             <h6>Seja Bem-Vindo!</h6>
             <br>
 
