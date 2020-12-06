@@ -6,8 +6,6 @@ include_once("../conexao.php");
 date_default_timezone_set("Brazil/East");
 $data_inicio = $_POST['dateini'];
 $data_fim = $_POST['datefini'];
-
-
 //Busca do cod hospedagem para descobrir quais hospegens estão encaixadas na seleção
 $sql_code = "SELECT cod_hospedagem FROM hospede where data_entrada between '$data_inicio' and '$data_fim' group by cod_hospedagem;";
 //executa a busca
@@ -66,7 +64,7 @@ $sql_query = $conexao->query($sql_code) or die($conexao->error);
                         <td><?php echo $informacoes_recebidas["tipo"];     ?></td>
                         <td><?php echo $informacoes_recebidas["cnpj"];     ?></td>
                         <td>
-                            <a href="receptores/receptor_usuario_especifico.php?cod=<?php echo $informacoes_recebidas["cod_hospedagem"]; ?>"> <button type="button" class="btn btn-primary">Hospedes</button></a>
+                            <a href="receptor_usuario_especifico.php?cod=<?php echo $informacoes_recebidas["cod_hospedagem"]; ?>&datainicio=<?php echo $data_inicio; ?>&datafim=<?php echo $data_fim; ?>"> <button type="button" class="btn btn-primary">Hospedes</button></a>
                         </td>
                     </tr>
 

@@ -39,8 +39,7 @@ $linha = $sql_query->fetch_assoc();
 <body class="bg-primary">
     <div class="mx-auto p-5">
         <nav class="navbar navbar-light bg-success">
-            <a class="navbar-brand text-light">Hospedagem com hospedes no periodo selecionado</a>
-
+            <a class="navbar-brand text-light">Usuários cadastrados no sistema</a>
         </nav>
 
 

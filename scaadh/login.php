@@ -27,7 +27,7 @@
                 <br>
             </div>
             <div id="botoeshome">
-                <a href="atualizarcadastro.php">
+                <a href="atualizarcadastro_secretaria.php">
                     <button type="button" class="btn btn-outline-success">Atualizar Dados de Cadastro</button>
                 </a>
                 <br>

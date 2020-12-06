@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="./javascript/index.js"></script>
 
-    <title>Hello, world!</title>
+    <title>Dados dos Hospedes</title>
 </head>
 
 <body>
@@ -25,7 +25,6 @@
     $today = date('d/m/Y');
     $today2 = date("Y-m-d");
     ?>
-
     <!-- esse bg-light é o que define a cor de fundo-->
     <div class="container-fluid bg-primary d-flex flex-column justify-content-center align-items-center p-5">
         <!-- Aqui em cima           .        tentar colocar um azul clarinho     -->
@@ -70,7 +69,7 @@
             $sql_code_busca_banco = "SELECT nacionalidade, data_entrada, data_saida, estado_moradia 
             FROM hospede 
             INNER JOIN empreendimento ON empreendimento.cod_hospedagem = hospede.cod_hospedagem
-            WHERE hospede.data_registro = '$today2' and hospede.cod_hospedagem = 1;";
+            WHERE hospede.data_registro = '$today2' and hospede.cod_hospedagem = (SELECT cod_hospedagem FROM empreendimento WHERE cod_usuario = '$cod');";
 
             $sql_retorno_informações_hospede = $conexao->query($sql_code_busca_banco) or die($conexao->error);
             ?>
@@ -90,7 +89,6 @@
                         // Todas funções mysql_fetch_* retornam uma única linha e avançam o cursor interno para o próximo registro.
                         // Para obter todos os registros, você precisa utiliza-las dentro de alguma estrutura de repetição.
                     ?>
-
                         <div class="card-body p-1">
                             <ul class="list-group rounded-0">
                                 <li class="list-group-item">
@@ -109,13 +107,13 @@
                                     <strong>
                                         <h6 class="mb-0">Data Entrada:</h6>
                                     </strong>
-                                    <small class="mt-0"><?php echo $exibe_linha['data_entrada']; ?></small>
+                                    <small class="mt-0"><?php echo date ( "d-m-Y", strtotime($exibe_linha['data_entrada'])); ?></small>
                                 </li>
                                 <li class="list-group-item">
                                     <strong>
                                         <h6 class="mb-0">Data Saída:</h6>
                                     </strong>
-                                    <small class="mt-0"><?php echo $exibe_linha['data_saida']; ?></small>
+                                    <small class="mt-0"><?php  echo date ( "d-m-Y", strtotime($exibe_linha['data_saida'])); ?></small>
                                 </li>
                             </ul>
                         </div>
