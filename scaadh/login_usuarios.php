@@ -21,7 +21,7 @@
 
 
 <body class="bg-primary">
-    <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
+    <div class="container-fluid d-flex flex-column text-center align-items-center p-5 ">
         <div class="col-12 col-lg-5 p-2 bg-white border rounded-right">
 
             <div>
@@ -32,13 +32,32 @@
             </div>
             <div id="botoeshome">
                 <a href="atualizarcadastro.php">
-                    <button type="button" class="btn btn btn-outline-primary">Atualizar Dados de Cadastro</button>
+                    <button type="button" class="btn btn btn-primary">Atualizar Dados de Cadastro</button>
                 </a>
                 <br>
                 <br>
-                <a href="formulario_input.php">
-                    <button type="button" class="btn btn-outline-primary">Preencher Formulário Semanal </button>
-                </a>
+
+                <?php
+                include_once("conexao.php");
+
+                session_start();
+                $cod =  $_SESSION['UsuarioCOD'];
+
+                $sql_code_se_empreendimento = "SELECT * FROM empreendimento WHERE cod_usuario = '$cod'";
+
+                $sql_proseguir_ou_aviso = $conexao->query($sql_code_se_empreendimento) or die($conexao->error);
+
+                $linha = $sql_proseguir_ou_aviso->fetch_assoc();
+
+                if ($linha['tipo'] === 'Hospedagem') {
+                    echo '<a href="formulario_input.php">
+                        <button type="button" class="btn btn-primary">Preencher Formulário Semanal </button>
+                        </a>';
+                }
+                ?>
+
+
+
             </div>
         </div>
     </div>

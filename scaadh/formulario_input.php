@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="pt-br">
+<?php
+include_once("conexao.php");
+date_default_timezone_set("Brazil/East");
+session_start();
+$cod =  $_SESSION['UsuarioCOD'];
+$today = date('d/m/Y');
+$today2 = date("Y-m-d");
+?>
 
 <head>
     <!-- Required meta tags -->
@@ -10,22 +18,15 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="./javascript/index.js"></script>
-
     <title>Dados dos Hospedes</title>
 </head>
-
+<style>
+    *{
+        padding: 0;
+    }
+</style>
 <body>
-    <?php
-    include_once("conexao.php");
 
-    date_default_timezone_set("Brazil/East");
-
-    session_start();
-    $cod =  $_SESSION['UsuarioCOD'];
-    $today = date('d/m/Y');
-    $today2 = date("Y-m-d");
-    ?>
-    <!-- esse bg-light é o que define a cor de fundo-->
     <div class="container-fluid bg-primary d-flex flex-column justify-content-center align-items-center p-5">
         <!-- Aqui em cima           .        tentar colocar um azul clarinho     -->
         <div class="col-12 col-lg-5 p-2 bg-white border border-success rounded-lg">
@@ -58,6 +59,7 @@
                             </div>
                             <!-- Aqui faz o envio dos dados para o arquivo receptor_formulario_input     onclick='handleSubmit'     -->
                             <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                            <a href="./login_usuarios.php" class="btn btn-secondary btn-block" value="Voltar" >Voltar</a>
                         </div>
                     </form>
                 </div>
@@ -80,7 +82,6 @@
                 <!-- apresentação -->
                 <div class="card-header bg-white border-0 p-5">
                     <h5 class="mb-0">Ultimos Registros</h5>
-                    <small class="text-secondary">Data: <?php echo $today ?></small>
                 </div>
 
                 <div class="card-group">
@@ -90,8 +91,8 @@
                         // Para obter todos os registros, você precisa utiliza-las dentro de alguma estrutura de repetição.
                     ?>
                         <div class="card-body p-1">
-                            <ul class="list-group rounded-0">
-                                <li class="list-group-item">
+                            <ul class="list-group rounded-0" style="border: 1px solid #98b89c; border-collapse: separate; ">
+                                <li class="list-group-item" style="background-color: #d4ffd9;">
                                     <strong>
                                         <h6 class="mb-0">Nacionalidade:</h6>
                                     </strong>
@@ -107,13 +108,13 @@
                                     <strong>
                                         <h6 class="mb-0">Data Entrada:</h6>
                                     </strong>
-                                    <small class="mt-0"><?php echo date ( "d-m-Y", strtotime($exibe_linha['data_entrada'])); ?></small>
+                                    <small class="mt-0"><?php echo date("d-m-Y", strtotime($exibe_linha['data_entrada'])); ?></small>
                                 </li>
                                 <li class="list-group-item">
                                     <strong>
                                         <h6 class="mb-0">Data Saída:</h6>
                                     </strong>
-                                    <small class="mt-0"><?php  echo date ( "d-m-Y", strtotime($exibe_linha['data_saida'])); ?></small>
+                                    <small class="mt-0"><?php echo date("d-m-Y", strtotime($exibe_linha['data_saida'])); ?></small>
                                 </li>
                             </ul>
                         </div>

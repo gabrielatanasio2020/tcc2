@@ -57,7 +57,7 @@ VALUES
 
 		$sql_b = "
 		INSERT INTO empreendimento (cod_usuario, cod_gastronomia, cnpj, nome, titular, tipo) 
-		VALUES ('$codUsuario',$cod_gastronomia','$cnpj','$nome','$titular','$tipo');
+		VALUES ('$codUsuario', '$cod_gastronomia','$cnpj','$nome','$titular','$tipo');
 ";
 	} else if (strcasecmp($tipo, 'Hospedagem') == 0) {
 		$sql_selecao = "INSERT INTO hospedagem (capacidade_maxima) VALUES ($capacidade);

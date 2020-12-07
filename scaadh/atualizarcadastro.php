@@ -95,8 +95,8 @@ $linha = $sql_query->fetch_assoc();
                     </div>
                     <br>
                     <!--Botão para enviar os dados para o arquivo de cadastro no banco de dados -->
-                    <button type="submit" name="cadastrar" class="btn btn-outline-success">Alterar</button>
-                    <input type="button" class="btn btn-outline-success" value="Voltar" onClick="JavaScript: window.history.back();">
+                    <button type="submit" name="cadastrar" class="btn btn-primary btn-block">Alterar</button>
+                    <a href="./login_usuarios.php" class="btn btn-secondary btn-block" value="Voltar" >Voltar</a>
                 </form>
             </div>
         </div>

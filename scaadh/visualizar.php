@@ -38,12 +38,12 @@ $linha = $sql_query->fetch_assoc();
 
 <body class="bg-primary">
     <div class="mx-auto p-5">
-        <nav class="navbar navbar-light bg-success">
+        <nav class="navbar navbar-light bg-success" style="border-top-right-radius:7px; border-top-left-radius:7px;">
             <a class="navbar-brand text-light">Usuários cadastrados no sistema</a>
         </nav>
 
 
-        <table cellpadding=10 class="table table-light border-0">
+        <table cellpadding=10 class="table table-light border-0" style="border-bottom-right-radius:7px; border-bottom-left-radius:7px;">
 
             <tr>
                 <td>Usuario </td>
@@ -60,12 +60,12 @@ $linha = $sql_query->fetch_assoc();
                     <td><?php echo $linha["cnpj"];     ?></td>
                     <td>
                         <a href="editarcadastro.php?cod=<?php echo $linha['cod_usuario']; ?>"><button type="button" class="btn btn-warning">Editar</button></a>
-                        <a href="receptores/receptor_deleta.php?cod=<?php echo $linha["cod"]; ?>"><button type="button" class="btn btn-danger">Deletar</button></a>
+                        <a href="receptores/receptor_deleta.php?cod=<?php echo $linha["cod_usuario"]; ?>"><button type="button" class="btn btn-danger">Deletar</button></a>
                     </td>
 
                 </tr>
-                
-                
+
+
             <?php  } while ($linha = $sql_query->fetch_assoc()); ?>
 
         </table>

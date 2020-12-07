@@ -34,7 +34,7 @@
                 <div class="card p-0 border-0 rounded-0">
                     <!-- apresentação -->
                     <div class="card-header bg-white border-0 p-5">
-                        <h5 class="mb-0">Registros</h5>
+                        <h5 class="mb-0">Registro(s) na data especificada</h5>
                     </div>
 
                     <div class="card-group">
@@ -44,8 +44,8 @@
                             // Para obter todos os registros, você precisa utiliza-las dentro de alguma estrutura de repetição.
                         ?>
                             <div class="card-body p-1">
-                                <ul class="list-group rounded-0">
-                                    <li class="list-group-item">
+                            <ul class="list-group rounded-0" style="border: 1px solid #98b89c; border-collapse: separate; ">
+                                <li class="list-group-item" style="background-color: #d4ffd9;">
                                         <strong>
                                             <h6 class="mb-0">Nacionalidade:</h6>
                                         </strong>
