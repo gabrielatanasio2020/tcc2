@@ -4,19 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>Cadastro</title>
-    <!--Link para o css da página -->
-    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--Estilização somente desta página -->
-    <style>
-        body {
-            background-color: lightgray;
-        }
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        h2 {
-            text-align: center;
-        }
-    </style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
 <?php
@@ -33,7 +24,6 @@ $sql_code = "SELECT * FROM usuario
 				INNER JOIN empreendimento
   				WHERE (usuario.cod = '$usu_codigo') and (usuario.cod = empreendimento.cod_usuario);";
 $sql_query = $conexao->query($sql_code) or die($conexao->error);
-
 $linha = $sql_query->fetch_assoc();
 
 
@@ -43,60 +33,54 @@ $linha = $sql_query->fetch_assoc();
 <body class="bg-primary">
     <!-- Página para inserir os dados de cadastro do usuário na sua entrada no sistema -->
 
-    <!-- AQUI EU ADICIONEI NA TABELA OS OUTROS DADOS -->
+
 
     <div class="container">
-        <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
-            <div id="borda" class="col-12 col-lg-5 p-2 bg-white border border-success rounded-right">
+        <div class="container-fluid d-flex flex-column align-items-center p-5">
+
+            <div id="borda" class="col-lg-8 p-5 m-3 bg-white border border-success rounded-right">
+
 
                 <form id="contactform" action="receptores/receptor_atualizar_empreendimento.php" method="POST">
-                    <h2> Alterar meus dados do empreendimento</h2>
-                    <br>
-                    <!--Dado usuário -->
-                    <div class="parte1">
-                        <div class="field">
-                            <p>
-                                <label for="usuario">Usuário:</label>
-                                <input name="usuario" type="text" value="<?php echo $linha['usuario'];  ?>" required>
-                            </p>
+                    <h3 class="text-center mb-3"> Alterar meus dados do empreendimento</h3>
+                    <div class="form-group">
+
+                        <div class="input-control">
+                            <label for="usuario">Usuário:</label>
+                            <input name="usuario" type="text" class="form-control" value="<?php echo $linha['usuario'];  ?>" required>
                         </div>
 
+
                         <!--Dado senha -->
-                        <div class="field">
-                            <p>
-                                <label for="senha">Senha:</label>
-                                <input name="senha" type="password" value="<?php echo $linha['senha'];  ?>" required>
-                            </p>
+                        <div class="input-control">
+                            <label for="senha">Senha:</label>
+                            <input name="senha" type="password" class="form-control" value="<?php echo $linha['senha'];  ?>" required>
                         </div>
 
 
                         <!--Dado CNPJ -->
-                        <div class="field">
-                            <p>
-                                <label for="cnpj">CNPJ:</label>
-                                <input name="cnpj" type="text" id="cnpj" maxlength="18" required value="<?php echo $linha['cnpj']; ?>">
-                            </p>
+                        <div class="input-control">
+                            <label for="cnpj">CNPJ:</label>
+                            <input name="cnpj" class="form-control" type="text" id="cnpj" maxlength="18" required value="<?php echo $linha['cnpj']; ?>">
                         </div>
                         <!--Dado Nome empresa -->
-                        <div class="field">
-                            <p>
-                                <label for="Empresa">Nome:</label>
-                                <input name="nome" type="text" value="<?php echo $linha['nome']; ?>">
-                            </p>
+                        <div class="input-control">
+                            <label for="Empresa">Nome:</label>
+                            <input name="nome" class="form-control" type="text" value="<?php echo $linha['nome']; ?>">
                         </div>
+
                         <!--Dado titular -->
-                        <div class="field">
-                            <p>
-                                <label for="titular">Titular:</label>
-                                <input name="titular" type="text" required value="<?php echo $linha['titular']; ?>">
-                            </p>
+                        <div class="input-control">
+                            <label for="titular">Titular:</label>
+                            <input name="titular" class="form-control" type="text" required value="<?php echo $linha['titular']; ?>">
                         </div>
 
                     </div>
-                    <br>
+
                     <!--Botão para enviar os dados para o arquivo de cadastro no banco de dados -->
                     <button type="submit" name="cadastrar" class="btn btn-primary btn-block">Alterar</button>
-                    <a href="./login_usuarios.php" class="btn btn-secondary btn-block" value="Voltar" >Voltar</a>
+                    <a href="./login_usuarios.php" class="btn btn-secondary btn-block" value="Voltar">Voltar</a>
+
                 </form>
             </div>
         </div>

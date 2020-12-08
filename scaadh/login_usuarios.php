@@ -12,8 +12,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <style>
-        div#preenchimento {
-            height: 100vh;
+        .teste {
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            margin: auto;
         }
     </style>
 </head>
@@ -21,7 +25,7 @@
 
 
 <body class="bg-primary">
-    <div class="container-fluid d-flex flex-column text-center align-items-center p-5 ">
+    <div id="teste" class="container-fluid d-flex flex-column text-center align-items-center p-5 ">
         <div class="col-12 col-lg-5 p-2 bg-white border rounded-right">
 
             <div>

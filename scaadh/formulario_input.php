@@ -20,11 +20,7 @@ $today2 = date("Y-m-d");
     <script src="./javascript/index.js"></script>
     <title>Dados dos Hospedes</title>
 </head>
-<style>
-    *{
-        padding: 0;
-    }
-</style>
+
 <body>
 
     <div class="container-fluid bg-primary d-flex flex-column justify-content-center align-items-center p-5">
