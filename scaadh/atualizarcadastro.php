@@ -6,7 +6,6 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
@@ -38,7 +37,7 @@ $linha = $sql_query->fetch_assoc();
     <div class="container">
         <div class="container-fluid d-flex flex-column align-items-center p-5">
 
-            <div id="borda" class="col-lg-8 p-5 m-3 bg-white border border-success rounded-right">
+            <div id="borda" class="col-lg-8 p-5 m-3 bg-white border border-success rounded">
 
 
                 <form id="contactform" action="receptores/receptor_atualizar_empreendimento.php" method="POST">
@@ -50,11 +49,10 @@ $linha = $sql_query->fetch_assoc();
                             <input name="usuario" type="text" class="form-control" value="<?php echo $linha['usuario'];  ?>" required>
                         </div>
 
-
                         <!--Dado senha -->
                         <div class="input-control">
                             <label for="senha">Senha:</label>
-                            <input name="senha" type="password" class="form-control" value="<?php echo $linha['senha'];  ?>" required>
+                            <input name="senha" type="password" class="form-control"  placeholder ="Preencha somente se for alterar senha">
                         </div>
 
 

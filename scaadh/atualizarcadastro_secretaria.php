@@ -5,18 +5,9 @@
     <meta charset="utf-8">
     <title>Cadastro</title>
     <!--Link para o css da página -->
-    <link rel="stylesheet" type="text/css" href="css/cadastro.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!--Estilização somente desta página -->
-    <style>
-        body {
-            background-color: lightgray;
-        }
-
-        h2 {
-            text-align: center;
-        }
-    </style>
 
 </head>
 <?php
@@ -46,18 +37,18 @@ $linha = $sql_query->fetch_assoc();
     <!-- AQUI EU ADICIONEI NA TABELA OS OUTROS DADOS -->
 
     <div class="container">
-        <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
-            <div id="borda" class="col-12 col-lg-5 p-2 bg-white border border-success rounded-right">
+        <div class="container-fluid d-flex flex-column align-items-center p-5">
+            <div id="borda" class="col-lg-8 p-5 m-3 bg-white border border-success rounded">
 
                 <form id="contactform" action="receptores/receptor_atualizar_secretaria.php" method="POST">
-                    <h2> Alterar meus dados do empreendimento</h2>
+                    <h3 class="text-center mb-3"> Alterar dados de cadastro</h3>
                     <br>
                     <!--Dado usuário -->
-                    <div class="parte1">
+                    <div class="form-group">
                         <div class="field">
                             <p>
                                 <label for="usuario">Usuário:</label>
-                                <input name="usuario" type="text" value="<?php echo $linha['usuario'];  ?>" required>
+                                <input name="usuario" class="form-control" type="text" value="<?php echo $linha['usuario'];  ?>" required>
                             </p>
                         </div>
 
@@ -65,7 +56,7 @@ $linha = $sql_query->fetch_assoc();
                         <div class="field">
                             <p>
                                 <label for="senha">Senha:</label>
-                                <input name="senha" type="password" value="<?php echo $linha['senha'];  ?>" required>
+                                <input name="senha" class="form-control" placeholder ="Preencha somente se for alterar senha" type="password">
                             </p>
                         </div>
 
@@ -74,23 +65,24 @@ $linha = $sql_query->fetch_assoc();
                         <div class="field">
                             <p>
                                 <label for="cnpj">CNPJ:</label>
-                                <input name="cnpj" type="text" id="cnpj" maxlength="18" required value="<?php echo $linha['cnpj']; ?>">
+                                <input name="cnpj" class="form-control" type="text" id="cnpj" maxlength="18" required value="<?php echo $linha['cnpj']; ?>">
                             </p>
                         </div>
                         <!--Dado Secretario Atual-->
                         <div class="field">
                             <p>
                                 <label for="Empresa">Secretario:</label>
-                                <input name="secretario" type="text" value="<?php echo $linha['secretario']; ?>">
+                                <input name="secretario" class="form-control" type="text" value="<?php echo $linha['secretario']; ?>">
                             </p>
                         </div>
-                       
+
 
                     </div>
                     <br>
                     <!--Botão para enviar os dados para o arquivo de cadastro no banco de dados -->
-                    <button type="submit" name="cadastrar" class="btn btn-outline-success">Alterar</button>
-                    <input type="button" class="btn btn-outline-success" value="Voltar" onClick="JavaScript: window.history.back();">
+                    <button type="submit" name="cadastrar" class="btn btn-primary btn-block">Alterar</button>
+                    <a href="./login.php" class="btn btn-secondary btn-block" value="Voltar">Voltar</a>
+
                 </form>
             </div>
         </div>

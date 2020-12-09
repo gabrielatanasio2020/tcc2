@@ -17,14 +17,14 @@
 
     <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
         <!-- Adicionar o action -->
-        <div class="col-12 col-lg-5 p-2 bg-white border rounded-right">
+        <div class="col-12 col-lg-5 p-2 bg-white border rounded">
             <h1>SCAADH</h1>
             <h5>Sistema de Cadastro, Armazenamento e Atualização de Dados para Hotelaria</h5>
             <h6>Seja Bem-Vindo!</h6>
             <br>
 
             <form action="./receptores/receptor_validacao.php" method="POST">
-
+            <div class="form-group">
                 <div class="field">
                     <p> Usuário:</p>
                     <input name="usuario"><br>
@@ -32,11 +32,9 @@
                     <input type="password" name="senha"><br>
                     <br>
                 </div>
-                <button type="submit" name="logar" class="btn btn-outline-success">Login</button>
+                <button type="submit" name="logar" class="btn btn-success">Login</button>
+            </div>
             </form>
-            <br>
-
-
             <a class="btn btn-primary" id="cad_empresa" href="./cadastro.php">Cadastrar-me</a>
         </div>
     </div>

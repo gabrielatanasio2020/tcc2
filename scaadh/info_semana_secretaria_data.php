@@ -10,7 +10,7 @@
 
 <body class="bg-primary">
     <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
-        <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
+        <div class="col-12 col-lg-5 p-2 bg-white border rounded">
             <div>
                 <br>
                 <h4>Informe o periodo que deseja buscar</h4>
@@ -27,7 +27,10 @@
                     <input type="date" class="form-control" name="datefini" required>
                     
                 </div>
-                <button type="submit" class="btn btn-outline-success">Buscar</button>
+                
+
+                <button type="submit"class="btn btn-primary btn-block">Buscar</button>
+                <a href="./login.php" class="btn btn-secondary btn-block" value="Voltar">Voltar</a> 
             </form>
         </div>
     </div>

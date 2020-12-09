@@ -8,6 +8,7 @@
 	$senha = $_POST['senha'];
 	$email = $_POST['email'];
 
+	$criptografada = md5($senha);
 
 
 	/* PARTE 2 - CONEXÃO COM A TABELA EMPREENDIMENTO!!!!!!!!!!Daqui para baixo já está conectado  */
@@ -27,7 +28,7 @@
 	$sql_a = "
 INSERT INTO usuario (usuario, senha, email) 
 VALUES
-('$usuario','$senha','$email');
+('$usuario','$criptografada','$email');
 ";
 
 

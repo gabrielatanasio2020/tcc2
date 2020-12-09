@@ -19,22 +19,41 @@ $nome = $_POST['nome'];
 
 /* 		|||||||||||INFORMAÇÕES INDO PARA O BANCO DE DADOS |||||||||||||||||*/
 
-
-$sqlb = "
+if (empty($senha)) {
+    $sqlb = "
 UPDATE usuario SET 
-usuario = '$usuario', 
-senha = '$senha'
+usuario = '$usuario' 
 WHERE cod = '$usu_codigo'";
 
 
 
-/* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
+    /* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
 
-if ($conexao->query($sqlb) === TRUE) {
-    echo "Alteração do USUARIO concluido com sucesso";
+    if ($conexao->query($sqlb) === TRUE) {
+        echo "Alteração do USUARIO concluido com sucesso";
+    } else {
+        echo "Error: " . $sqlb . "<br>" . $conexao->error;
+    }
 } else {
-    echo "Error: " . $sqlb . "<br>" . $conexao->error;
+    $criptografada = md5($senha);
+
+    $sqlb = "
+UPDATE usuario SET 
+usuario = '$usuario', 
+senha = '$criptografada'
+WHERE cod = '$usu_codigo'";
+
+
+
+    /* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
+
+    if ($conexao->query($sqlb) === TRUE) {
+        echo "Alteração do USUARIO concluido com sucesso";
+    } else {
+        echo "Error: " . $sqlb . "<br>" . $conexao->error;
+    }
 }
+
 
 
 $sqlc = "

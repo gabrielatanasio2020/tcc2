@@ -17,7 +17,7 @@
 
 <body class="bg-primary">
     <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
-        <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
+        <div class="col-12 col-lg-5 p-2 bg-white border rounded">
             <div class="topico">
                 <br>
                 <br>
@@ -28,17 +28,17 @@
             </div>
             <div id="botoeshome">
                 <a href="atualizarcadastro_secretaria.php">
-                    <button type="button" class="btn btn-outline-success">Atualizar Dados de Cadastro</button>
+                    <button type="button" class="btn btn-primary">Atualizar Dados de Cadastro</button>
                 </a>
                 <br>
                 <br>
                 <a href="visualizar.php">
-                    <button type="button" class="btn btn-outline-success">Registro de Usuários </button>
+                    <button type="button" class="btn btn-primary">Registro de Usuários </button>
                 </a>
                 <br>
                 <br>
                 <a href="info_semana_secretaria_data.php">
-                    <button type="button" class="btn btn-outline-success">Receber informações da semana </button>
+                    <button type="button" class="btn btn-primary">Receber informações da semana </button>
                 </a>
             </div>
         </div>

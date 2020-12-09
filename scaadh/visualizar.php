@@ -62,7 +62,7 @@ $linha = $sql_query->fetch_assoc();
                         <td><?php echo $linha["tipo"]; ?></td>
                         <td><?php echo $linha["cnpj"]; ?></td>
                         <td>
-                            <a href="editarcadastro.php?cod=<?php echo $linha['cod_usuario']; ?>"><button type="button" class="btn btn-warning">Editar</button></a>
+                            <a href="editarcadastro.php?cod=<?php echo $linha['cod_usuario']; ?>"><button type="button" class="btn btn-warning">Editar/visualizar</button></a>
 
 
 

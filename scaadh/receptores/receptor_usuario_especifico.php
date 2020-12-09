@@ -30,7 +30,7 @@
 
     <body class="bg-primary">
         <div class="container-fluid d-flex flex-column text-center align-items-center p-5">
-            <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg">
+            <div class="col-12 col-lg-5 p-2 bg-white border rounded">
                 <div class="card p-0 border-0 rounded-0">
                     <!-- apresentação -->
                     <div class="card-header bg-white border-0 p-5">
@@ -73,6 +73,8 @@
                             </div>
 
                         <?php } ?>
+                        <input type="button" class="btn btn-secondary btn-block" value="Voltar" onClick="JavaScript: window.history.back();">
+                        
                     </div>
                 </div>
             </div>

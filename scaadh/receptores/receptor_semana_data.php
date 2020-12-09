@@ -25,7 +25,7 @@ $sql_query = $conexao->query($sql_code) or die($conexao->error);
             <!-- <div class="col-12 col-lg-5 p-2 bg-white border rounded-lg"> -->
             <nav class="navbar navbar-light bg-success">
                 <a class="navbar-brand text-light">Usuários</a>
-
+                <a href="../info_semana_secretaria_data.php" class="btn btn-secondary">Voltar</a>
             </nav>
 
 

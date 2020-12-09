@@ -2,7 +2,7 @@
 
 include_once("../conexao.php");
 
-$usu_codigo = intval($_GET['cod_usuario']);
+$usu_codigo = intval($_GET['cod']);
 
 
 /* |ATRIBUINDO O VALOR DA VARIAVEL DO CADASTRO.PHP PARA UMA VARIAVEL AQUI */
@@ -18,8 +18,7 @@ $senha = $_POST['senha'];
 $cnpj = $_POST['cnpj'];
 $titular = $_POST['titular'];
 $nome = $_POST['nome'];
-$tipo = $_POST['tipo'];
-$capacidade = $_POST['capacidade'];
+
 
 
 
@@ -27,29 +26,49 @@ $capacidade = $_POST['capacidade'];
 /* 		|||||||||||INFORMAÇÕES INDO PARA O BANCO DE DADOS |||||||||||||||||*/
 
 
-$sqlb = "
-UPDATE usuario SET 
-usuario = '$usuario', 
-senha = '$senha'
-WHERE cod = '$usu_codigo'"; 
+if (empty($senha)) {
+	$sqlb = "
+	UPDATE usuario SET 
+	usuario = '$usuario'	
+	WHERE cod = '$usu_codigo'"; 
+	
+	
+	
+	/* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
+	
+		if ($conexao->query($sqlb) === TRUE) {
+			echo "Alteração do USUARIO concluido com sucesso";
+		} else {
+			echo "Error: " . $sqlb . "<br>" . $conexao->error;
+		}
 
+} else {
 
+    $criptografada = md5($senha);
+	$sqlb = "
+	UPDATE usuario SET 
+	usuario = '$usuario', 
+	senha = '$senha'
+	WHERE cod = '$usu_codigo'"; 
+	
+	
+	
+	/* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
+	
+		if ($conexao->query($sqlb) === TRUE) {
+			echo "Alteração do USUARIO concluido com sucesso";
+		} else {
+			echo "Error: " . $sqlb . "<br>" . $conexao->error;
+		}
+}
 
-/* VERIFICANDO SE A INCLUSÃO OCORREU CORRETAMENTE */
-
-	if ($conexao->query($sqlb) === TRUE) {
-	    echo "Alteração do USUARIO concluido com sucesso";
-	} else {
-	    echo "Error: " . $sqlb . "<br>" . $conexao->error;
-	}
 	
 	
 $sqlc = "
 UPDATE empreendimento SET 
 cnpj = '$cnpj',
 nome = '$nome', 
-titular = '$titular', 
-tipo = '$tipo'
+titular = '$titular'
 WHERE cod_usuario = '$usu_codigo';
 ";
 

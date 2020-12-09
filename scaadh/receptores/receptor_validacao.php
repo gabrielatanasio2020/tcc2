@@ -11,12 +11,12 @@ if ((!empty($_POST['usuario']) or !empty($_POST['senha']))) {
 $usuario =  $conexao->real_escape_string($_POST['usuario']);
 $senha = $conexao->real_escape_string($_POST['senha']);
 
-
+$criptografada = md5($senha);
 
 //Fazer a chamada do banco de dados para verificar se os dados para login estão corretos
 $sql_code = "
   SELECT * FROM usuario
-  WHERE (`usuario` = '$usuario ') AND (`senha` = '$senha') LIMIT 1 ;";
+  WHERE (`usuario` = '$usuario ') AND (`senha` = '$criptografada') LIMIT 1 ;";
 
 $sql_query = $conexao->query($sql_code) or die($conexao->error);
 $num_rows = $sql_query->num_rows;
